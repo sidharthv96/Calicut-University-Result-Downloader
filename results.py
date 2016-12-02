@@ -23,7 +23,10 @@ def download_result(regno):
     print "Saved : "+reg
 
 try:
-    os.mkdir("PDF")
+    if not os.path.exists("PDF"):
+        os.makedirs("PDF")
+    rolls = list(set(range(1, 69)) - set(map(lambda x: int(x[:-4]), (os.listdir("PDF")))))
+    print rolls
     p = Pool(10)
     p.map(download_result,range(1,70))
 except Exception as e:
