@@ -2,12 +2,11 @@
 echo "Register No,Name,301,302,303,304,305,306,307(P),308(P),SGPA"
 for i in {1..69}
 do
+i="PDF/$i"
 pdftotext $i.pdf $i.txt -raw
 # echo $i
 # if [ $i -eq 18 ];then continue
 # elif [ $i -eq 54 ];then continue
-# else
-# i="r"
 #
 
 # EN14 301 ENGINEERING MATHEMATICS III 4 D NOVEMBER,2015 Rg
@@ -35,4 +34,4 @@ sgpa=`cat $i.txt|grep SGPA|cut -d' ' -f7`
 echo $reg,$name,$sub1,$sub2,$sub3,$sub4,$sub5,$sub6,$sub7,$sub8,$sgpa
 #fi
 done
-rm *.txt
+rm PDF/*.txt
