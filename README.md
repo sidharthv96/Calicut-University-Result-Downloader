@@ -7,3 +7,4 @@ Requests Library (http://requests.readthedocs.io/en/latest/user/install/)
 
 Usage:
 python results.py
+./extract.sh > results.csv
