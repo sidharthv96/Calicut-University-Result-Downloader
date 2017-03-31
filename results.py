@@ -15,6 +15,7 @@ def download_result(regno):
             try:                
                 r = requests.post('http://61.0.254.181/CuPbhavan/res_newregentry.php', data=data, headers=headers)
                 r = requests.get('http://61.0.254.181/CuPbhavan/rs_newcheck.php', headers=headers)
+                break
             except Exception as ef:
                 pass
         while(True):
