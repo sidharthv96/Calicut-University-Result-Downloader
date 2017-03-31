@@ -34,7 +34,7 @@ try:
         os.makedirs("PDF")
     rolls = list(set(range(1, 70)) - set(map(lambda x: int(x[:-4]), (os.listdir("PDF")))))
     print rolls
-    p = Pool(20)
+    p = Pool(15)
     p.map(download_result,rolls)
 except Exception as e:
     print e.message
