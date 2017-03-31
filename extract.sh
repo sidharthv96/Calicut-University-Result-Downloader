@@ -2,11 +2,12 @@
 echo "Register No,Name,301,302,303,304,305,306,307(P),308(P),SGPA"
 for i in {1..69}
 do
+# if [ $i -eq 69 ];then continue
+# elif [ $i -eq 9 ];then continue
+
 i="PDF/$i"
 pdftotext $i.pdf $i.txt -raw
 # echo $i
-# if [ $i -eq 18 ];then continue
-# elif [ $i -eq 54 ];then continue
 #
 
 # EN14 301 ENGINEERING MATHEMATICS III 4 D NOVEMBER,2015 Rg
