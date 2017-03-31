@@ -14,8 +14,13 @@ def download_result(regno):
 
         r = requests.post('http://61.0.254.181/CuPbhavan/res_newregentry.php', data=data, headers=headers)
         r = requests.get('http://61.0.254.181/CuPbhavan/rs_newcheck.php', headers=headers)
-        r = requests.get('http://61.0.254.181/CuPbhavan/cubtech7/btechcss_res.php', headers=headers)  #This URL might need to be updated
-
+        while(True):
+            try:
+                r = requests.get('http://61.0.254.181/CuPbhavan/cubtech7/btechcss_res.php', headers=headers)  #This URL might need to be updated
+                break
+            except Exception as ee:
+                # print ee
+                print "Retrying "+str(regno)
         with open("PDF/"+str(regno)+".pdf", 'wb') as fd:
             for chunk in r.iter_content(chunk_size=128):
                 fd.write(chunk)
