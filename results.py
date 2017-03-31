@@ -11,9 +11,12 @@ def download_result(regno):
         print reg,id
         headers = {"Cookie": "PHPSESSID="+id}
         data = {"regno": reg, 'sum': '111', 'id': '6021', 'sessionok': 'yes'}  #The id should be updated.
-
-        r = requests.post('http://61.0.254.181/CuPbhavan/res_newregentry.php', data=data, headers=headers)
-        r = requests.get('http://61.0.254.181/CuPbhavan/rs_newcheck.php', headers=headers)
+        while(True):
+            try:                
+                r = requests.post('http://61.0.254.181/CuPbhavan/res_newregentry.php', data=data, headers=headers)
+                r = requests.get('http://61.0.254.181/CuPbhavan/rs_newcheck.php', headers=headers)
+            except Exception as ef:
+                pass
         while(True):
             print "trying "+str(regno)
             try:
