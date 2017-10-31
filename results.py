@@ -6,13 +6,14 @@ import os
 
 
 def download_result(regno):
+    res_id = '6021'
     reg = "ETAOECS" + str(regno).zfill(3)
     try:
         id = (str(random.random())[2:] * 27)[:26]
         print reg, id
         headers = {"Cookie": "PHPSESSID=" + id}
         # The id should be updated.
-        data = {"regno": reg, 'sum': '111', 'id': '6021', 'sessionok': 'yes'}
+        data = {"regno": reg, 'sum': '111', 'id': res_id, 'sessionok': 'yes'}
         while(True):
             try:
                 r = requests.post(
